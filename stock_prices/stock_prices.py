@@ -3,7 +3,13 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  profit = prices[1] - prices[0] # Sets PROFIT to second index - first index
+  for index, p in enumerate(prices): # Loops through prices that also has indexes
+    for pr in prices[:index]: # Loops through all prices before the current index and checks each one
+      if p - pr > profit:
+        profit = p - pr
+  
+  return profit
 
 
 if __name__ == '__main__':
